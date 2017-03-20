@@ -9,12 +9,31 @@
 #include <iostream>
 #include <string>
 #include <fstream>
+#include <sstream>
+#include <list>
 #include "functions.hpp"
 
 #define NAIVE 1
 #define IMPROVED 2
 
 using namespace std;
+
+void constructFDList(istream& in, list<FD> sigma){
+	
+	string s;
+	
+	while (getline(in, s)){
+		istringstream ss(s);
+		string left, right;
+		char trash;
+		
+		getline(ss, left, '-');
+		ss >> trash;
+		getline(ss, right);
+		
+		sigma.emplace_back(left, right);
+	}
+}
 
 void usage(){
 	cerr << "usage: closure option input atts" << endl;
@@ -51,5 +70,31 @@ int main(int argc, const char * argv[]) {
 		exit(2);
 	}
 	
+	list<FD> sigma;
+	
+	constructFDList(in, sigma);
+	
+	AttSet x(argv[3]);
+	AttSet res;
+	
+	closure(sigma, x, res);
+	
+	cout << res << endl;
+	
     return 0;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

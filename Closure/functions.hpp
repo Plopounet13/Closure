@@ -12,6 +12,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
+#include <list>
+#include <algorithm>
 
 //attribute
 typedef std::string attribute;
@@ -47,7 +49,7 @@ class FD {
 public:
 	//identifier of the FD
 	int ID;
-	//functonal dependency : left -> right
+	//functional dependency : left -> right
 	AttSet left;
 	AttSet right;
 	//construct FD from two sets of attributes
@@ -58,4 +60,24 @@ int FD::counter=0;
 
 /*We use list of FDs to implement sets of FDs */ 
 
+//compute the closure of x
+void closure(const std::list<FD>& sigma, const AttSet& x, AttSet& res, int algo);
+
 #endif /* functions_hpp */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
