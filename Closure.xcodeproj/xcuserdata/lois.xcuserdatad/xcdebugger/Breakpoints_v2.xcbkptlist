@@ -6,39 +6,101 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Closure/main.cpp"
-            timestampString = "511712075.844493"
+            timestampString = "511733870.126615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "41"
-            endingLineNumber = "41"
-            landmarkName = "main(int argc, const char * argv[])"
+            startingLineNumber = "39"
+            endingLineNumber = "39"
+            landmarkName = "usage()"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Closure/functions.hpp"
-            timestampString = "511712570.305331"
+            timestampString = "511733870.126615"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "46"
-            endingLineNumber = "46"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
             landmarkName = "class FD"
             landmarkType = "3">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FD::~FD()"
+                  moduleName = "Closure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lois/Documents/M1ENS/BDDM/Closure/Closure/functions.hpp"
+                  timestampString = "511733871.696354"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FD::~FD()"
+                  moduleName = "Closure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lois/Documents/M1ENS/BDDM/Closure/Closure/functions.hpp"
+                  timestampString = "511733871.700192"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "16">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FD::FD(FD const&amp;)"
+                  moduleName = "Closure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lois/Documents/M1ENS/BDDM/Closure/Closure/functions.hpp"
+                  timestampString = "511733871.703534"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "20">
+               </Location>
+               <Location
+                  shouldBeEnabled = "No"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "FD::FD(FD const&amp;)"
+                  moduleName = "Closure"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/lois/Documents/M1ENS/BDDM/Closure/Closure/functions.hpp"
+                  timestampString = "511733871.707242"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "76"
+                  endingLineNumber = "76"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Closure/main.cpp"
@@ -48,6 +110,22 @@
             startingLineNumber = "82"
             endingLineNumber = "82"
             landmarkName = "main(int argc, const char * argv[])"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Closure/functions.cpp"
+            timestampString = "511734213.679737"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "137"
+            endingLineNumber = "137"
+            landmarkName = "closureNaive(const vector&lt;FD&gt;&amp; sigma, const AttSet&amp; x, AttSet&amp; res, int algo)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

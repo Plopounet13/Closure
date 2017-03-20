@@ -11,17 +11,15 @@
 #include <fstream>
 #include <sstream>
 #include <list>
+#include <map>
 #include "functions.hpp"
-
-#define NAIVE 1
-#define IMPROVED 2
 
 using namespace std;
 
-void constructFDList(istream& in, list<FD> sigma){
+void constructFDList(istream& in, vector<FD>& sigma){
 	
 	string s;
-	
+	int nb=0;
 	while (getline(in, s)){
 		istringstream ss(s);
 		string left, right;
@@ -31,7 +29,7 @@ void constructFDList(istream& in, list<FD> sigma){
 		ss >> trash;
 		getline(ss, right);
 		
-		sigma.emplace_back(left, right);
+		sigma.emplace_back(left, right, nb++);
 	}
 }
 
@@ -60,8 +58,13 @@ int main(int argc, const char * argv[]) {
 	
 	if (!strcmp(argv[1] ,"-naive")){
 		alg = NAIVE;
-	}else if (!strcmp(argv[1] ,"-improved")){
+	} else if (!strcmp(argv[1] ,"-improved")){
 		alg = IMPROVED;
+	} else {
+		error("Erreur type d'algorithme inconnu");
+		usage();
+		cerr << endl;
+		exit(1);
 	}
 	
 	ifstream in(argv[2]);
@@ -70,14 +73,14 @@ int main(int argc, const char * argv[]) {
 		exit(2);
 	}
 	
-	list<FD> sigma;
+	vector<FD> sigma;
 	
 	constructFDList(in, sigma);
 	
 	AttSet x(argv[3]);
 	AttSet res;
 	
-	closure(sigma, x, res);
+	closure(sigma, x, res, alg);
 	
 	cout << res << endl;
 	
