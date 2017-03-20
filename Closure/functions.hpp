@@ -43,7 +43,7 @@ void minus(const AttSet& a, const AttSet& b, AttSet& out);
 //functional dependencies
 class FD {
 	//number of FDs already created, to give them a unique identifier
-	static int counter=0;
+	static int counter;
 public:
 	//identifier of the FD
 	int ID;
@@ -53,6 +53,8 @@ public:
 	//construct FD from two sets of attributes
 	FD(const AttSet& left, const AttSet right);
 };
+
+int FD::counter=0;
 
 /*We use list of FDs to implement sets of FDs */ 
 
