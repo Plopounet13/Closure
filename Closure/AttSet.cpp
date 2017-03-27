@@ -27,6 +27,19 @@ AttSet::AttSet(const std::string& s){
 	}
 }
 
+bool AttSet::isIncluded(const AttSet& b) const{
+	bool bIncluded = true;
+	int i = 0, j=0;
+	while (bIncluded && j<tab.size()){
+		while (i<b.tab.size() && tab[i] < b.tab[j])
+			++i;
+		if (i==b.tab.size() || tab[i] > b.tab[j])
+			bIncluded=false;
+		++j;
+	}
+	return bIncluded;
+}
+
 const AttSet& AttSet::operator+=(const AttSet& b){
 	vector<Attribute> out(tab.size() + b.tab.size());
 	auto it = set_union(tab.begin(), tab.end(), b.tab.begin(), b.tab.end(), out.begin());

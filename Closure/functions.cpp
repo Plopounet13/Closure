@@ -14,19 +14,6 @@
 
 using namespace std;
 
-bool AttSet::isIncluded(const AttSet& b) const{
-	bool bIncluded = true;
-	int i = 0, j=0; 
-	while (bIncluded && j<tab.size()){
-		while (i<b.tab.size() && tab[i] < b.tab[j])
-			++i;
-		if (i==b.tab.size() || tab[i] > b.tab[j])
-			bIncluded=false;
-		++j;
-	}
-	return bIncluded;
-}
-
 void closureNaive(const vector<FD>& sigma, const AttSet& x, AttSet& res, int algo){
 	res = x;
 	bool done = false;
