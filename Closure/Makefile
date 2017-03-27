@@ -18,9 +18,9 @@ $(PROG): % : %.o $(OBJECTS)
 	$(CC) $(LDFLAGS) $(STD) -o $(PRODNAME) $< $(OBJECTS) -lm
 
 cleanall : clean
-	rm  $(PRODNAME)
+	-rm  $(PRODNAME)
 
 clean :
-	rm *.o
+	-rm *.o
 
 
