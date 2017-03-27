@@ -30,9 +30,10 @@ Open questions
 4.1 Justifications of data structures
 -------------------------------------
 We choose to represent attributes by string ordered by an id.
-Set of attributes are represented by ordered vector of attributes. Though the ordered characteristic slow down the time to add an element to a set, it is useful when comparing sets (inclusion) and when doing union or differences of two sets (functions we execute in the closure algorithm).
+We define a template for set. Sets are represented by ordered vector of their elements. Though the ordered characteristic slow down the time to add an element to a set, it is useful when comparing sets (inclusion) and when doing union or differences of two sets (functions we execute for attributes in the closure algorithm and for FDs in the reduce algorithm).
+So sets of attributes are defined using our set template.
 For functional dependencies, we use a pair of set of attributes plus an ID, for we want to have access to both sets and to the ID for the count data structure.
-For set of FDs we only need to be able to iterate on them, so a list of FDs is enough for this. 
+We first thought that for set of FDs we will only need to be able to iterate on them, so a list of FDs would be enough. However we also need to do minus, so we use the same set template as for set of attributes.
 List (resp. count) is a vector of list of FDs (resp. int) indexed by the attributes (resp. FDs) ID.
 
 4.2 Strategy for Choose A
