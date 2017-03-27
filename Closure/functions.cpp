@@ -97,9 +97,17 @@ const AttSet& AttSet::operator-=(const AttSet& b){
 	return *this;
 }
 
-//TODO
 bool AttSet::isIncluded(const AttSet& b) const{
-	return true;
+	bool bIncluded = true;
+	int i = 0, j=0; 
+	while (bIncluded && j<tab.size()){
+		while (i<b.tab.size() && tab[i] < b.tab[j])
+			++i;
+		if (i==b.tab.size() || tab[i] > b.tab[j])
+			bIncluded=false;
+		++j;
+	}
+	return bIncluded;
 }
 
 std::ostream& operator<<(std::ostream& out, const AttSet& a){
