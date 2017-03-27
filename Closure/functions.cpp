@@ -35,15 +35,19 @@ void closureImproved(const vector<FD>& sigma, const AttSet& x, AttSet& res, int 
 	vector<int> count(sigma.size());
 	vector<list<const FD*>> l(Attribute::counter);
 	
+	res=x;
+	AttSet update=x;
+	
 	for (int i=0; i < sigma.size(); ++i){
 		count[i] = (int) sigma[i].left.tab.size();
 		for (auto& att : sigma[i].left.tab){
 			l[att.ID].push_back(&(sigma[i]));
 		}
+		if (!count[i]){
+			update += sigma[i].right;
+			res += sigma[i].right;
+		}
 	}
-	
-	res=x;
-	AttSet update=x;
 	
 	while (!update.tab.empty()){
 		
@@ -86,7 +90,7 @@ void generate(int n){
 	
 	while (n--){
 		left = to_string(n);
-		sigma.emplace_back(left, right);
+		sigma.emplace_back(left, right, sigma.size());
 		right.swap(left);
 	}
 	
@@ -99,14 +103,21 @@ void generate(int n){
 	
 }
 
+void minimize(const vector<FD>& sigma, vector<FD>& res){
+	
+}
 
+void reduce(const vector<FD>& sigma, vector<FD>& res){
+	
+}
 
 void normalize(const vector<FD>& sigma){
 	return;
 }
 
-
-
+void decompose(const std::vector<FD>& sigma){
+	return;
+}
 
 
 
