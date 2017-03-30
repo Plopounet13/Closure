@@ -15,7 +15,8 @@
 #include <sstream>
 #include <list>
 #include "Attribute.hpp"
-#include "FD.hpp"
+
+class FD;
 
 
 //set of Attribute
@@ -29,8 +30,11 @@ public:
 	// construct an empty set
 	Set();
 	
-	// construct as a copy of another set of FD
+	// construct as a copy of another set
 	Set(const Set& set);
+	
+	// construct from string describing the set
+	Set(const std::string& s);
 	
 	// in place union operator
 	const Set& operator+=(const Set& b);
@@ -77,13 +81,23 @@ Set<T>::Set(const Set<T>& set):tab(set.tab){}
 
 
 template <class T>
+Set<T>::Set(const std::string& s){
+	std::istringstream in(s);
+	T t;
+	while (in >> t){
+		tab.push_back(t);
+	}
+}
+
+
+template <class T>
 bool Set<T>::isIncluded(const Set<T>& b) const{
 	bool bIncluded = true;
 	int i = 0, j=0;
-	while (bIncluded && j<tab.size()){
-		while (i<b.tab.size() && tab[i] < b.tab[j])
+	while (bIncluded && j<b.tab.size()){
+		while (i<tab.size() && tab[i] < b.tab[j])
 			++i;
-		if (i==b.tab.size() || tab[i] > b.tab[j])
+		if (i==tab.size() || tab[i] > b.tab[j])
 			bIncluded=false;
 		++j;
 	}
@@ -102,6 +116,16 @@ const Set<T>& Set<T>::operator+=(const Set<T>& b){
 }
 
 
+inline std::ostream& operator<<(std::ostream& out, const Set<Attribute>& a){
+	for (int i = 0; i < a.tab.size() - 1; ++i){
+		out << a.tab[i] << " ";
+	}
+	out << a.tab.back();
+	
+	return out;
+}
+
+
 template <class T>
 const Set<T>& Set<T>::operator-=(const Set<T>& b){
 	std::vector<T> out(tab.size() + b.tab.size());
@@ -113,5 +137,6 @@ const Set<T>& Set<T>::operator-=(const Set<T>& b){
 }
 
 typedef Set<FD> FDSet ;
+typedef Set<Attribute> AttSet;
 
 #endif /* Set_hpp */

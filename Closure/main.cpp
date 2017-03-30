@@ -14,8 +14,7 @@
 #include <map>
 #include <cstdlib>
 #include "functions.hpp"
-#include "AttSet.hpp"
-#include "FDSet.hpp"
+#include "Set.hpp"
 
 using namespace std;
 

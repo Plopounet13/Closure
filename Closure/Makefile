@@ -6,7 +6,7 @@ CFLAGS    =  -g -Wall
 CPPFLAGS  =  -DDEBUG -I$(INCDIR)
 LDFLAGS   =  -g
 STD = -std=c++14
-OBJECTS = functions.o Attribute.o FD.o FDSet.o AttSet.o
+OBJECTS = functions.o Attribute.o FD.o
 
 
 all : $(PROG)

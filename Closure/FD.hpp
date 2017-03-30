@@ -11,7 +11,7 @@
 
 #include <string>
 #include <iostream>
-#include "AttSet.hpp"
+#include "Set.hpp"
 #include "Attribute.hpp"
 
 //functional dependencies

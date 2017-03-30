@@ -14,9 +14,8 @@
 #include <vector>
 #include <map>
 #include "Attribute.hpp"
-#include "AttSet.hpp"
 #include "FD.hpp"
-#include "FDSet.hpp"
+#include "Set.hpp"
 
 #define NAIVE 1
 #define IMPROVED 2

@@ -18,7 +18,7 @@ Attribute::Attribute(){
 	ID=-1;
 }
 
-Attribute::Attribute(std::string& s){
+void Attribute::fromString(string& s){
 	auto it = mappage.find(s);
 	if (it != mappage.end()){
 		ID = it->second;
@@ -28,6 +28,10 @@ Attribute::Attribute(std::string& s){
 		names.emplace_back();
 		names[ID].swap(s);
 	}
+}
+
+Attribute::Attribute(std::string& s){
+	fromString(s);
 }
 
 Attribute::Attribute(const Attribute& a){
@@ -57,4 +61,12 @@ bool operator==(const Attribute& a, const Attribute& b){
 std::ostream& operator<<(std::ostream& out, const Attribute& a){
 	out << Attribute::names[a.ID];
 	return out;
+}
+
+
+std::istream& operator>>(std::istream& in, Attribute& a){
+	string s;
+	in >> s;
+	a.fromString(s);
+	return in;
 }

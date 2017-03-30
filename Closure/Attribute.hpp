@@ -17,6 +17,7 @@
 class Attribute{
 	static std::map<std::string, int> mappage;
 	static std::vector<std::string> names;
+	void fromString(std::string& s);
 	
 public:
 	static int counter;
@@ -32,6 +33,7 @@ public:
 	friend bool operator>=(const Attribute& a, const Attribute& b);
 	friend bool operator==(const Attribute& a, const Attribute& b);
 	friend std::ostream& operator<<(std::ostream& out, const Attribute& a);
+	friend std::istream& operator>>(std::istream& in, Attribute& a);
 };
 
 #endif /* Attribute_hpp */
