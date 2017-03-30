@@ -10,11 +10,52 @@
 
 using namespace std;
 
-FD::FD(const string& left, const string& right, int id):left(left), right(right){
+FD::FD(){}
+
+FD::FD(const AttSet& l, const AttSet& r, int id){
+	left = new AttSet(l);
+	right = new AttSet(r);
 	ID = id;
 }
 
+FD::FD(const string& l, const string& r, int id){
+	left = new AttSet(l);
+	right = new AttSet(r);
+	ID = id;
+}
+
+FD::FD(const FD& f){
+	left = new AttSet(*f.left);
+	right = new AttSet(*f.right);
+	ID = f.ID;
+}
+
+bool operator<(const FD& a, const FD& b){
+	return a.ID < b.ID;
+}
+
+bool operator>(const FD& a, const FD& b){
+	return a.ID > b.ID;
+}
+
+bool operator<=(const FD& a, const FD& b){
+	return a.ID <= b.ID;
+}
+
+bool operator>=(const FD& a, const FD& b){
+	return a.ID >= b.ID;
+}
+
+bool operator==(const FD& a, const FD& b){
+	return a.ID == b.ID;
+}
+
 ostream& operator<< (ostream& out, const FD& fd){
-	out << fd.left << " -> " << fd.right;
+	out << *fd.left << " -> " << *fd.right;
 	return out;
+}
+
+FD::~FD() {
+	delete left;
+	delete right;
 }

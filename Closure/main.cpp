@@ -12,7 +12,10 @@
 #include <sstream>
 #include <list>
 #include <map>
+#include <cstdlib>
 #include "functions.hpp"
+#include "AttSet.hpp"
+#include "FDSet.hpp"
 
 using namespace std;
 
@@ -30,7 +33,7 @@ void filterComments(istream& in, ostream& out){
 	
 }
 
-void constructFDList(istream& in, vector<FD>& sigma){
+void constructFDList(istream& in, FDSet& sigma){
 	
 	string s;
 	int nb=0;
@@ -43,7 +46,7 @@ void constructFDList(istream& in, vector<FD>& sigma){
 		ss >> trash;
 		getline(ss, right);
 		
-		sigma.emplace_back(left, right, nb++);
+		sigma.tab.emplace_back(left, right, nb++);
 	}
 }
 
@@ -65,10 +68,10 @@ void usage(){
 }
 
 void error(const string& msg){
-	cerr << endl << msg << endl;
+	cerr << endl << msg << endl << endl;
 }
 
-int mainClosure(const char* argv[]){
+int mainClosure(char* argv[]){
 	
 	int alg;
 	
@@ -89,7 +92,7 @@ int mainClosure(const char* argv[]){
 		exit(4);
 	}
 	
-	vector<FD> sigma;
+	FDSet sigma;
 	
 	stringstream tmpout;
 	
@@ -132,7 +135,7 @@ int mainOther(const char* argv[]){
 		
 		ifstream in;
 		stringstream tmpout;
-		vector<FD> sigma;
+		FDSet sigma;
 		if (strcmp(argv[2], "-")){
 			in = ifstream(argv[2]);
 			if (in.fail()){
@@ -160,7 +163,7 @@ int mainOther(const char* argv[]){
 		}
 		
 		
-		vector<FD> sigma;
+		FDSet sigma;
 		
 		stringstream tmpout;
 		
@@ -180,8 +183,19 @@ int mainOther(const char* argv[]){
 
 int main(int argc, const char * argv[]) {
 	
+	argc=4;
+	
+	char** margv = (char**)malloc(4*sizeof(char*));
+	
+	margv[1] = (char*)malloc(100*sizeof(char));
+	margv[2] = (char*)malloc(100*sizeof(char));
+	margv[3] = (char*)malloc(100*sizeof(char));
+	strcpy(margv[1], "-naive");
+	strcpy(margv[2], "/Users/lois/Documents/M1ENS/BDDM/2017-normalization/examples/generate100.txt");
+	strcpy(margv[3], "30");
+	
 	if (argc == 4){
-		return mainClosure(argv);
+		return mainClosure(margv);
 	} else if (argc == 3){
 		return mainOther(argv);
 	} else {

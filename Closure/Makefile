@@ -6,7 +6,7 @@ CFLAGS    =  -g -Wall
 CPPFLAGS  =  -DDEBUG -I$(INCDIR)
 LDFLAGS   =  -g
 STD = -std=c++14
-OBJECTS = functions.o Attribute.o AttSet.o FD.o
+OBJECTS = functions.o Attribute.o FD.o FDSet.o AttSet.o
 
 
 all : $(PROG)
@@ -18,9 +18,9 @@ $(PROG): % : %.o $(OBJECTS)
 	$(CC) $(LDFLAGS) $(STD) -o $(PRODNAME) $< $(OBJECTS) -lm
 
 cleanall : clean
-	-rm  $(PRODNAME)
+	rm -f $(PRODNAME)
 
 clean :
-	-rm *.o
+	rm -f *.o
 
 

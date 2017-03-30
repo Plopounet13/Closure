@@ -12,17 +12,18 @@
 #include <iostream>
 #include <vector>
 #include <string>
+#include <sstream>
 #include "Attribute.hpp"
 
 //set of Attribute
+
+
 class AttSet {
 	
 public:
 	std::vector<Attribute> tab;
 	// construct an empty set
 	AttSet();
-	// construct a set from a vector of Attribute
-	AttSet(std::vector<Attribute>& initVect);
 	// construct as a copy of another set of Attribute
 	AttSet(const AttSet& set);
 	// construct from a string describing a set of Attribute
@@ -39,14 +40,9 @@ public:
 	friend void unite(const AttSet& a, const AttSet& b, AttSet& out);
 	//set out ot a minus b
 	friend void diff(const AttSet& a, const AttSet& b, AttSet& out);
-	//printing operator, prints all attributes of the set separated by whitespaces
+	//printing operator, prints all Attributes of the set separated by whitespaces
 	friend std::ostream& operator<<(std::ostream& out, const AttSet& a);
 };
-
-//set out to a union b
-void unite(const AttSet& a, const AttSet& b, AttSet& out);
-//set out ot a minus b
-void minus(const AttSet& a, const AttSet& b, AttSet& out);
 
 
 #endif /* AttSet_hpp */

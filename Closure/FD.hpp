@@ -12,18 +12,30 @@
 #include <string>
 #include <iostream>
 #include "AttSet.hpp"
+#include "Attribute.hpp"
 
 //functional dependencies
 class FD {
 public:
 	int ID;
 	//functional dependency : left -> right
-	AttSet left;
-	AttSet right;
+	AttSet* left;
+	AttSet* right;
 	//construct FD from two strings describing left Attribute and right Attributes
+	FD();
+	FD(const FD& f);
 	FD(const std::string& left, const std::string& right, int ID);
+	FD(const AttSet& left, const AttSet& right, int ID);
+	
+	//FDs are ordered by their ID
+	friend bool operator<(const FD& a, const FD& b);
+	friend bool operator>(const FD& a, const FD& b);
+	friend bool operator<=(const FD& a, const FD& b);
+	friend bool operator>=(const FD& a, const FD& b);
+	friend bool operator==(const FD& a, const FD& b);
 	
 	friend std::ostream& operator<< (std::ostream& out, const FD& fd);
+	~FD();
 };
 
 
