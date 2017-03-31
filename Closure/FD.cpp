@@ -10,18 +10,20 @@
 
 using namespace std;
 
+int FD::counter = 0;
+
 FD::FD(){}
 
-FD::FD(const AttSet& l, const AttSet& r, int id){
+FD::FD(const AttSet& l, const AttSet& r){
 	left = new AttSet(l);
 	right = new AttSet(r);
-	ID = id;
+	ID = counter++;
 }
 
-FD::FD(const string& l, const string& r, int id){
+FD::FD(const string& l, const string& r){
 	left = new AttSet(l);
 	right = new AttSet(r);
-	ID = id;
+	ID = counter++;
 }
 
 FD::FD(const FD& f){

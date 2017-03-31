@@ -23,6 +23,7 @@ public:
 	static int counter;
 	int ID;
 	Attribute();
+	~Attribute(){}
 	Attribute(std::string& s);
 	Attribute(const Attribute& a);
 	

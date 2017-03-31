@@ -35,7 +35,6 @@ void filterComments(istream& in, ostream& out){
 void constructFDList(istream& in, FDSet& sigma){
 	
 	string s;
-	int nb=0;
 	while (getline(in, s)){
 		istringstream ss(s);
 		string left, right;
@@ -45,7 +44,7 @@ void constructFDList(istream& in, FDSet& sigma){
 		ss >> trash;
 		getline(ss, right);
 		
-		sigma.tab.emplace_back(left, right, nb++);
+		sigma.tab.emplace_back(left, right);
 	}
 }
 
@@ -117,7 +116,9 @@ bool is_integer(const string s){
 	return true;
 }
 
-int mainOther(const char* argv[]){
+//TODO: if input is - then get from stdin
+
+int mainOther(char* argv[]){
 	
 	if (!strcmp(argv[1] ,"-generate")){
 		int n;
@@ -152,6 +153,8 @@ int mainOther(const char* argv[]){
 		
 		normalize(sigma);
 		
+		cout << sigma << endl;
+		
 	} else if (!strcmp(argv[1] ,"-decompose")){
 		
 		ifstream in(argv[2]);
@@ -171,6 +174,8 @@ int mainOther(const char* argv[]){
 		
 		decompose(sigma);
 		
+		cout << sigma << endl;
+		
 	} else {
 		error("Erreur: fonctinon demandée non reconnue");
 		usage();
@@ -182,21 +187,21 @@ int mainOther(const char* argv[]){
 
 int main(int argc, const char * argv[]) {
 	
-	argc=4;
+	argc=3;
 	
 	char** margv = (char**)malloc(4*sizeof(char*));
 	
 	margv[1] = (char*)malloc(100*sizeof(char));
 	margv[2] = (char*)malloc(100*sizeof(char));
 	margv[3] = (char*)malloc(100*sizeof(char));
-	strcpy(margv[1], "-naive");
+	strcpy(margv[1], "-normalize");
 	strcpy(margv[2], "/Users/lois/Documents/M1ENS/BDDM/2017-normalization/examples/generate100.txt");
 	strcpy(margv[3], "30");
 	
 	if (argc == 4){
 		return mainClosure(margv);
 	} else if (argc == 3){
-		return mainOther(argv);
+		return mainOther(margv);
 	} else {
 		error("Erreur: nombre de parametres incorrect");
 		usage();

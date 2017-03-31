@@ -66,7 +66,7 @@ std::ostream& operator<<(std::ostream& out, const Attribute& a){
 
 std::istream& operator>>(std::istream& in, Attribute& a){
 	string s;
-	in >> s;
-	a.fromString(s);
+	if (in >> s)
+		a.fromString(s);
 	return in;
 }

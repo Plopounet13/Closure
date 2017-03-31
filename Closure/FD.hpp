@@ -16,6 +16,7 @@
 
 //functional dependencies
 class FD {
+	static int counter;
 public:
 	int ID;
 	//functional dependency : left -> right
@@ -24,8 +25,8 @@ public:
 	//construct FD from two strings describing left Attribute and right Attributes
 	FD();
 	FD(const FD& f);
-	FD(const std::string& left, const std::string& right, int ID);
-	FD(const AttSet& left, const AttSet& right, int ID);
+	FD(const std::string& left, const std::string& right);
+	FD(const AttSet& left, const AttSet& right);
 	
 	//FDs are ordered by their ID
 	friend bool operator<(const FD& a, const FD& b);

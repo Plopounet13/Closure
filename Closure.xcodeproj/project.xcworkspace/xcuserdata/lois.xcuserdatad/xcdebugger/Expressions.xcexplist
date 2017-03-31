@@ -3,12 +3,44 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "AttSet::isIncluded(AttSet const&amp;) const:AttSet.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "mainOther(char const**):main.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "std::__1::__vector_base&lt;Attribute, std::__1::allocator&lt;Attribute&gt; &gt;::~__vector_base():vector">
+      </ContextState>
+      <ContextState
+         contextName = "minimize(Set&lt;FD&gt; const&amp;, Set&lt;FD&gt;&amp;):functions.cpp">
+         <PersistentStrings>
+            <PersistentString
+               value = "Attribute::names">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FD::~FD():FD.cpp">
+      </ContextState>
+      <ContextState
+         contextName = "Set&lt;Attribute&gt;::~Set():Set.hpp">
+      </ContextState>
+      <ContextState
          contextName = "closureNaive(FDSet const&amp;, AttSet const&amp;, AttSet&amp;):functions.cpp">
          <PersistentStrings>
             <PersistentString
                value = "Attribute::names">
             </PersistentString>
          </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "void std::__1::allocator_traits&lt;std::__1::allocator&lt;FD&gt; &gt;::__destroy&lt;FD&gt;(std::__1::integral_constant&lt;bool, true&gt;, std::__1::allocator&lt;FD&gt;&amp;, FD*) [inlined]:memory">
+      </ContextState>
+      <ContextState
+         contextName = "std::__1::__vector_base&lt;FD, std::__1::allocator&lt;FD&gt; &gt;::__destruct_at_end(FD*) [inlined]:vector">
+      </ContextState>
+      <ContextState
+         contextName = "std::__1::vector&lt;FD, std::__1::allocator&lt;FD&gt; &gt;::__destruct_at_end(FD*) [inlined]:vector">
       </ContextState>
    </ContextStates>
 </VariablesViewState>

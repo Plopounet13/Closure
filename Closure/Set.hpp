@@ -25,10 +25,13 @@ template <class T>
 class Set {
 	
 public:
+	//TODO: Once all algorithm finished try replacing by a list and time it
 	std::vector<T> tab;
 	
 	// construct an empty set
 	Set();
+	
+	~Set(){}
 	
 	// construct as a copy of another set
 	Set(const Set& set);
@@ -41,6 +44,12 @@ public:
 	
 	// in place minus operator
 	const Set& operator-=(const Set& b);
+	
+	// Removes Element from the set
+	const Set& operator-=(const T& elem);
+	
+	// Adds single Element to the set
+	const Set<T>& operator+=(const T& elem);
 	
 	// in place comparator, check if the set is included in the set b
 	bool isIncluded(const Set& b) const;
@@ -136,7 +145,39 @@ const Set<T>& Set<T>::operator-=(const Set<T>& b){
 	return *this;
 }
 
+//TODO: Change this when going to lists (replace by reverse iteration)
+template <class T>
+const Set<T>& Set<T>::operator-=(const T& elem){
+	auto first = tab.begin();
+	first = std::lower_bound(first,tab.end(),elem);
+	if (first!=tab.end() && !(elem<*first)){
+		tab.erase(first);
+	}
+}
+
+
+template <class T>
+const Set<T>& Set<T>::operator+=(const T& elem){
+	auto first = tab.begin();
+	first = std::lower_bound(first,tab.end(),elem);
+	if (first!=tab.end() && !(elem<*first)){
+		return;
+	}else{
+		tab.insert(first);
+	}
+}
+
 typedef Set<FD> FDSet ;
 typedef Set<Attribute> AttSet;
 
 #endif /* Set_hpp */
+
+
+
+
+
+
+
+
+
+
