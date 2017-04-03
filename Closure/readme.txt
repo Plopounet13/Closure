@@ -19,11 +19,6 @@ fd.cpp: define the class functional dependencies
 functions.cpp: the naive and improved closure algorithm
 Makefile 
 
-/* to be completed with the list of your source files, */
-/* feel free to add relevant supplementary material */
-/* prevent yourselves from adding binaries or the originaly provided examples */
-
-
 Open questions
 ==============
 
@@ -32,6 +27,7 @@ Open questions
 We choose to represent attributes by string ordered by an id.
 We define a template for set. Sets are represented by ordered vector of their elements. Though the ordered characteristic slow down the time to add an element to a set, it is useful when comparing sets (inclusion) and when doing union or differences of two sets (functions we execute for attributes in the closure algorithm and for FDs in the reduce algorithm).
 So sets of attributes are defined using our set template.
+For sets of sets of attributes, we only need to iterate on them, so a vector is enough for this.
 For functional dependencies, we use a pair of set of attributes plus an ID, for we want to have access to both sets and to the ID for the count data structure.
 We first thought that for set of FDs we will only need to be able to iterate on them, so a list of FDs would be enough. However we also need to do minus, so we use the same set template as for set of attributes.
 List (resp. count) is a vector of list of FDs (resp. int) indexed by the attributes (resp. FDs) ID.
@@ -51,6 +47,8 @@ It is a case where we can see the improvement between the two versions of the cl
 
 6.2 Setup and methodology
 -------------------------
+For timing, we time internally to the program, not through bash (as it is done in the perf.sh example provided) (so we avoid noise like launch time of the program).
+We construct a bach script using grep and sed for timing our closure algorithms on several examples generated using generate (which is an interesting case). We do test for n going from 100 to 3000 with a step of 100, for each n we do the average on 5 draws. We attached a figure of those points (time depending of n) for the naive and improved algotrihm.
 
 6.3 Analysis
 ------------
@@ -58,6 +56,6 @@ It is a case where we can see the improvement between the two versions of the cl
 
 Additional comments
 ===================
-
-/* if any */
+On exercice 7 : decomposition
+First the pseudo code algorithm provided in the subject seems incorrect with no mention of R when looking for a non trivial non key FD, and so always doing the same step in the while loop. We tried to correct this by replacing U by R in checking if X non key.
 
