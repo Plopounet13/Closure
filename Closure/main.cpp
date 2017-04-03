@@ -14,6 +14,7 @@
 #include <map>
 #include <cstdlib>
 #include <ctime>
+#include <cstring>
 #include "functions.hpp"
 #include "Set.hpp"
 
@@ -140,12 +141,10 @@ int mainOther(const char* argv[]){
 		
 	} else if (!strcmp(argv[1] ,"-normalize")){
 		
-		
-		ifstream in;
 		stringstream tmpout;
 		FDSet sigma;
 		if (strcmp(argv[2], "-")){
-			in = ifstream(argv[2]);
+			ifstream in(argv[2]);
 			if (in.fail()){
 				error("Erreur: impossible d'ouvrir le fichier d'entrée");
 				usage();

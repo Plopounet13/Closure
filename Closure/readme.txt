@@ -48,12 +48,11 @@ It is a case where we can see the improvement between the two versions of the cl
 6.2 Setup and methodology
 -------------------------
 For timing, we time internally to the program, not through bash (as it is done in the perf.sh example provided) (so we avoid noise like launch time of the program).
-We construct a bach script using grep and sed for timing our closure algorithms on several examples generated using generate (which is an interesting case). We do test for n going from 100 to 1000 with a step of 100, for each n we do the average on 5 draws. We attached a figure of those points (time depending of n) for the naive and improved algotrihm.
+We construct a bach script using grep and sed for timing our closure algorithms on several examples generated using generate (which is an interesting case). We do test for n going from 100 to 2000 with a step of 100, for each n we do the average on 5 draws. We attached a figure of those points (time depending of n) for the naive and improved algorithm.
 
 6.3 Analysis
-
 ------------
-
+The time analysis allowed us to see the square in the naive algorithm complexity and that the relabelling of the attributes adds a log(#Attributes) factor in the complexity. This could be avoided by using a Prefix tree or a Hashtable.
 
 Additional comments
 ===================
