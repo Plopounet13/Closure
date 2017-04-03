@@ -17,6 +17,8 @@
 #include "functions.hpp"
 #include "Set.hpp"
 
+/* TIME_ME to 0 disables timing */
+#define TIME_ME 1
 
 using namespace std;
 
@@ -71,7 +73,7 @@ void error(const string& msg){
 	cerr << endl << msg << endl << endl;
 }
 
-int mainClosure(char* argv[]){
+int mainClosure(const char* argv[]){
 	
 	int alg;
 	
@@ -124,7 +126,7 @@ bool is_integer(const string s){
 
 //TODO: if input is - then get from stdin
 
-int mainOther(char* argv[]){
+int mainOther(const char* argv[]){
 	
 	if (!strcmp(argv[1] ,"-generate")){
 		int n;
@@ -198,7 +200,8 @@ int mainOther(char* argv[]){
 }
 
 int main(int argc, const char * argv[]) {
-	
+
+/*
 	argc=3;
 	
 	char** margv = (char**)malloc(4*sizeof(char*));
@@ -209,24 +212,29 @@ int main(int argc, const char * argv[]) {
 	strcpy(margv[1], "-decompose");
 	strcpy(margv[2], "/Users/lois/Documents/M1ENS/BDDM/Closure/Closure/test.in");
 	strcpy(margv[3], "200");
-	 
+*/
 	int ret;
 	
+	
+#if (TIME_ME!=0)
 	clock_t start_s=clock();
+#endif
 	
 	if (argc == 4){
-		ret = mainClosure(margv);
+		ret = mainClosure(argv);
 	} else if (argc == 3){
-		ret = mainOther(margv);
+		ret = mainOther(argv);
 	} else {
 		error("Erreur: nombre de parametres incorrect");
 		usage();
 		exit(1);
 	}
 	
+#if (TIME_ME!=0)
 	clock_t stop_s=clock();
 	if (strcmp(argv[1], "-generate"))
 		cout << "time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << endl;
+#endif
 	
 	return ret;
 	
