@@ -31,10 +31,10 @@ void closure(const FDSet& sigma, const AttSet& x, AttSet& res, int algo);
 void generate(int n);
 
 //Normalizes the signature sigma
-void normalize(FDSet& sigma);
+void normalize(const FDSet& sigma, FDSet& res);
 
 //Outputs BCNF corresponding to signature sigma
-void decompose(FDSet& sigma);
+void decompose(const FDSet& sigma, std::vector<AttSet>& R);
 
 #endif /* functions_hpp */
 

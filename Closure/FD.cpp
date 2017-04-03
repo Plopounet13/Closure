@@ -61,3 +61,9 @@ FD::~FD() {
 	delete left;
 	delete right;
 }
+
+void swap(FD& a, FD& b){
+	swap(a.left, b.left);
+	swap(a.right, b.right);
+	swap(a.ID, b.ID);
+}

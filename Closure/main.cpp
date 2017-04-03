@@ -13,8 +13,10 @@
 #include <list>
 #include <map>
 #include <cstdlib>
+#include <ctime>
 #include "functions.hpp"
 #include "Set.hpp"
+
 
 using namespace std;
 
@@ -82,23 +84,27 @@ int mainClosure(char* argv[]){
 		usage();
 		exit(2);
 	}
-	 
-	ifstream in(argv[2]);
-	if (in.fail()){
-		error("Erreur: impossible d'ouvrir le fichier d'entrée");
-		usage();
-		exit(4);
-	}
 	
+	AttSet res;
 	FDSet sigma;
-	
 	stringstream tmpout;
 	
-	filterComments(in, tmpout);
-	constructFDList(tmpout, sigma);
+	if (strcmp(argv[2], "-")){
+		ifstream in(argv[2]);
+		
+		if (in.fail()){
+			error("Erreur: impossible d'ouvrir le fichier d'entrée");
+			usage();
+			exit(4);
+		}
+		
+		filterComments(in, tmpout);
+	}else{
+		filterComments(cin, tmpout);
+	}
 	
+	constructFDList(tmpout, sigma);
 	AttSet x(argv[3]);
-	AttSet res;
 	
 	closure(sigma, x, res, alg);
 	
@@ -151,30 +157,36 @@ int mainOther(char* argv[]){
 		
 		constructFDList(tmpout, sigma);
 		
-		normalize(sigma);
+		FDSet res;
+		normalize(sigma, res);
 		
-		cout << sigma << endl;
+		cout << res << endl;
 		
 	} else if (!strcmp(argv[1] ,"-decompose")){
-		
-		ifstream in(argv[2]);
-		if (in.fail()){
-			error("Erreur: impossible d'ouvrir le fichier d'entrée");
-			usage();
-			exit(4);
-		}
-		
-		
-		FDSet sigma;
-		
 		stringstream tmpout;
-		
-		filterComments(in, tmpout);
+		FDSet sigma;
+		if (strcmp(argv[2], "-")){
+			cout << argv[2] << endl;
+			ifstream in(argv[2]);
+			if (in.fail()){
+				error("Erreur: impossible d'ouvrir le fichier d'entrée");
+				usage();
+				exit(4);
+			}
+			
+			filterComments(in, tmpout);
+		}else{
+			filterComments(cin, tmpout);
+		}
+
 		constructFDList(tmpout, sigma);
 		
-		decompose(sigma);
+		vector<AttSet> R;
+		decompose(sigma, R);
 		
-		cout << sigma << endl;
+		for (auto& set : R){
+			cout << set << endl;
+		}
 		
 	} else {
 		error("Erreur: fonctinon demandée non reconnue");
@@ -194,19 +206,29 @@ int main(int argc, const char * argv[]) {
 	margv[1] = (char*)malloc(100*sizeof(char));
 	margv[2] = (char*)malloc(100*sizeof(char));
 	margv[3] = (char*)malloc(100*sizeof(char));
-	strcpy(margv[1], "-normalize");
-	strcpy(margv[2], "/Users/lois/Documents/M1ENS/BDDM/2017-normalization/examples/generate100.txt");
-	strcpy(margv[3], "30");
+	strcpy(margv[1], "-decompose");
+	strcpy(margv[2], "/Users/lois/Documents/M1ENS/BDDM/Closure/Closure/test.in");
+	strcpy(margv[3], "200");
+	 
+	int ret;
+	
+	clock_t start_s=clock();
 	
 	if (argc == 4){
-		return mainClosure(margv);
+		ret = mainClosure(margv);
 	} else if (argc == 3){
-		return mainOther(margv);
+		ret = mainOther(margv);
 	} else {
 		error("Erreur: nombre de parametres incorrect");
 		usage();
 		exit(1);
 	}
+	
+	clock_t stop_s=clock();
+	if (strcmp(argv[1], "-generate"))
+		cout << "time: " << (stop_s-start_s)/double(CLOCKS_PER_SEC)*1000 << endl;
+	
+	return ret;
 	
 }
 

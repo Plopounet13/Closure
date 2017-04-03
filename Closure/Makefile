@@ -2,9 +2,9 @@ PROG = main
 PRODNAME = closure
 # Variables pour la compilation des fichiers
 CC        =  clang++
-CFLAGS    =  -g -Wall
+CFLAGS    =  -Wall -O3
 CPPFLAGS  =  -DDEBUG -I$(INCDIR)
-LDFLAGS   =  -g
+LDFLAGS   = 
 STD = -std=c++14
 OBJECTS = functions.o Attribute.o FD.o
 

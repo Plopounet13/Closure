@@ -37,6 +37,8 @@ public:
 	
 	friend std::ostream& operator<< (std::ostream& out, const FD& fd);
 	~FD();
+	friend void swap (FD& a, FD& b);
+;
 };
 
 

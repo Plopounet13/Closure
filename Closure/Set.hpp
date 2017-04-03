@@ -160,11 +160,10 @@ template <class T>
 const Set<T>& Set<T>::operator+=(const T& elem){
 	auto first = tab.begin();
 	first = std::lower_bound(first,tab.end(),elem);
-	if (first!=tab.end() && !(elem<*first)){
-		return;
-	}else{
-		tab.insert(first);
+	if (first == tab.end() || (elem < *first)){
+		tab.insert(first, elem);
 	}
+	return *this;
 }
 
 typedef Set<FD> FDSet ;

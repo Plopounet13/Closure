@@ -96,10 +96,12 @@ void generate(int n){
 	}
 	
 	//This is not a good idea to shuffle a supposed sorted structure
-	auto engine = default_random_engine(time(NULL));
+	auto engine = default_random_engine((uint32_t)time(NULL));
 	shuffle(sigma.tab.begin(), sigma.tab.end(), engine);
 	
+	
 	cout << sigma << endl;
+	
 	
 }
 
@@ -191,17 +193,83 @@ void reduce(const FDSet& sigma, FDSet& res){
 }
 
 
-void normalize(FDSet& sigma){
+void normalize(const FDSet& sigma, FDSet& res2){
 	FDSet res;
 	minimize(sigma, res);
-	FDSet res2;
 	reduce(res, res2);
-	sigma.tab.swap(res2.tab);
 }
 
+void schema(const FDSet& sigma, AttSet& out){
+	vector<bool> vu(Attribute::counter, false);
+	
+	for (auto& fd : sigma.tab){
+		for (auto& a : fd.left->tab){
+			if (!vu[a.ID]){
+				vu[a.ID] = true;
+				out += a;
+			}
+		}
+		for (auto& a : fd.right->tab){
+			if (!vu[a.ID]){
+				vu[a.ID] = true;
+				out += a;
+			}
+		}
+	}
+}
 
-void decompose(FDSet& sigma){
-	return;
+bool testKeySchema(const FDSet& sigma, const AttSet& X, const AttSet& schema, AttSet& res){
+	closureImproved(sigma, X, res);
+	return res.isIncluded(schema);
+}
+
+bool BCNF(const FDSet& sigma, const AttSet& schema, FD const*& func, AttSet& xp){
+	for (auto& fd : sigma.tab){
+		if (!fd.left->isIncluded(*fd.right) && !testKeySchema(sigma, *fd.left, schema, xp)){
+			func = &fd;
+			return false;
+		}
+	}
+	return true;
+}
+
+bool testWhile(const FDSet& sigma, vector<AttSet>& R, AttSet*& res, FD const*& fd, AttSet& xp){
+	for (auto& set : R){
+		if (!BCNF(sigma, set, fd, xp)){
+			res = &set;
+			return true;
+		}
+	}
+	return false;
+}
+
+void decompose(const FDSet& sigma, vector<AttSet>& R){
+	R.clear();
+	
+	R.emplace_back();
+	
+	schema(sigma, R[0]);
+	
+	FDSet F;
+	normalize(sigma, F);
+	
+	AttSet* failer;
+	FD const* fd;
+	AttSet xp;
+				   //F ou sigma ?
+	while (testWhile(F, R, failer, fd, xp)){
+		/* Find non-trivial key fd*/
+		/* done in testWhile */
+		
+		/* Replace failer by R1 = X+ and R2 = (failer\X+) U X */
+		
+		*failer -= xp;
+		*failer += *fd->left;
+		
+		R.push_back(xp);
+		
+	}
+	
 }
 
 
