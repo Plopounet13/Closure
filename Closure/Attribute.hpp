@@ -35,6 +35,7 @@ public:
 	friend bool operator==(const Attribute& a, const Attribute& b);
 	friend std::ostream& operator<<(std::ostream& out, const Attribute& a);
 	friend std::istream& operator>>(std::istream& in, Attribute& a);
+	friend bool compAttributeName(const Attribute& a, const Attribute& b);
 };
 
 #endif /* Attribute_hpp */

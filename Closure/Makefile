@@ -3,7 +3,6 @@ PRODNAME = closure
 # Variables pour la compilation des fichiers
 CC        =  clang++
 CFLAGS    =  -Wall -O3
-CPPFLAGS  =  -DDEBUG -I$(INCDIR)
 LDFLAGS   = 
 STD = -std=c++14
 OBJECTS = functions.o Attribute.o FD.o

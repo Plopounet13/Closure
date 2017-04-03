@@ -48,14 +48,15 @@ It is a case where we can see the improvement between the two versions of the cl
 6.2 Setup and methodology
 -------------------------
 For timing, we time internally to the program, not through bash (as it is done in the perf.sh example provided) (so we avoid noise like launch time of the program).
-We construct a bach script using grep and sed for timing our closure algorithms on several examples generated using generate (which is an interesting case). We do test for n going from 100 to 3000 with a step of 100, for each n we do the average on 5 draws. We attached a figure of those points (time depending of n) for the naive and improved algotrihm.
+We construct a bach script using grep and sed for timing our closure algorithms on several examples generated using generate (which is an interesting case). We do test for n going from 100 to 1000 with a step of 100, for each n we do the average on 5 draws. We attached a figure of those points (time depending of n) for the naive and improved algotrihm.
 
 6.3 Analysis
+
 ------------
 
 
 Additional comments
 ===================
 On exercice 7 : decomposition
-First the pseudo code algorithm provided in the subject seems incorrect with no mention of R when looking for a non trivial non key FD, and so always doing the same step in the while loop. We tried to correct this by replacing U by R in checking if X non key.
+First the pseudo code algorithm provided in the subject seems incorrect with no mention of R when looking for a non trivial non key FD, and so always doing the same step in the while loop. We tried to correct this by replacing U by R in checking if X non key and by only considering functional dependencies that are considered to be inside the schema when testing BCNF.
 

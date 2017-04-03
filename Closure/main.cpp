@@ -183,12 +183,10 @@ int mainOther(const char* argv[]){
 
 		constructFDList(tmpout, sigma);
 		
-		vector<AttSet> R;
+		Set<AttSet> R;
 		decompose(sigma, R);
 		
-		for (auto& set : R){
-			cout << set << endl;
-		}
+		cout << R << endl;
 		
 	} else {
 		error("Erreur: fonctinon demandée non reconnue");
@@ -201,8 +199,8 @@ int mainOther(const char* argv[]){
 
 int main(int argc, const char * argv[]) {
 
-/*
-	argc=3;
+
+	/*argc=3;
 	
 	char** margv = (char**)malloc(4*sizeof(char*));
 	
@@ -211,8 +209,8 @@ int main(int argc, const char * argv[]) {
 	margv[3] = (char*)malloc(100*sizeof(char));
 	strcpy(margv[1], "-decompose");
 	strcpy(margv[2], "/Users/lois/Documents/M1ENS/BDDM/Closure/Closure/test.in");
-	strcpy(margv[3], "200");
-*/
+	strcpy(margv[3], "200");*/
+
 	int ret;
 	
 	

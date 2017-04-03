@@ -34,7 +34,7 @@ void generate(int n);
 void normalize(const FDSet& sigma, FDSet& res);
 
 //Outputs BCNF corresponding to signature sigma
-void decompose(const FDSet& sigma, std::vector<AttSet>& R);
+void decompose(const FDSet& sigma, Set<AttSet>& R);
 
 #endif /* functions_hpp */
 

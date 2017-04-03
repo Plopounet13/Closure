@@ -6,7 +6,7 @@ LIN_CL_CMD="./closure -improved - 0"
 
 echo "# \t naive \t improved" 
 n=5;
-for i in `seq 100 100 1000`; do
+for i in `seq 100 100 2000`; do
   naive_time=0
   imp_time=0
   for j in `seq 1 $n`; do

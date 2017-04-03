@@ -335,7 +335,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "103"
             endingLineNumber = "103"
-            landmarkName = "mainClosure(char* argv[])"
+            landmarkName = "mainClosure( char* argv[])"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -346,11 +346,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Closure/functions.cpp"
-            timestampString = "512922705.251341"
+            timestampString = "512932742.763508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "226"
-            endingLineNumber = "226"
+            startingLineNumber = "243"
+            endingLineNumber = "243"
             landmarkName = "BCNF(const FDSet&amp; sigma, const AttSet&amp; schema, FD const*&amp; func, AttSet&amp; xp)"
             landmarkType = "9">
          </BreakpointContent>
@@ -367,7 +367,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "168"
             endingLineNumber = "168"
-            landmarkName = "mainOther(char* argv[])"
+            landmarkName = "mainOther( char* argv[])"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -378,43 +378,43 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Closure/functions.cpp"
-            timestampString = "512922705.251341"
+            timestampString = "512932742.763508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "237"
-            endingLineNumber = "237"
-            landmarkName = "testWhile(const FDSet&amp; sigma, vector&lt;AttSet&gt;&amp; R, AttSet*&amp; res, FD const*&amp; fd, AttSet&amp; xp)"
+            startingLineNumber = "256"
+            endingLineNumber = "256"
+            landmarkName = "testWhile(const FDSet&amp; sigma, Set&lt;AttSet&gt;&amp; R, AttSet*&amp; res, FD const*&amp; fd, AttSet&amp; xp)"
             landmarkType = "9">
             <Locations>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "testWhile(Set&lt;FD&gt; const&amp;, std::__1::vector&lt;Set&lt;Attribute&gt;, std::__1::allocator&lt;Set&lt;Attribute&gt; &gt; &gt;&amp;, Set&lt;Attribute&gt;*&amp;, FD const*&amp;)"
+                  symbolName = "testWhile(Set&lt;FD&gt; const&amp;, std::__1::vector&lt;Set&lt;Attribute&gt;, std::__1::allocator&lt;Set&lt;Attribute&gt; &gt; &gt;&amp;, Set&lt;Attribute&gt;*&amp;, FD const*&amp;, Set&lt;Attribute&gt;&amp;)"
                   moduleName = "Closure"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lois/Documents/M1ENS/BDDM/Closure/Closure/functions.cpp"
-                  timestampString = "512922028.724796"
+                  timestampString = "512933447.86225"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "238"
-                  endingLineNumber = "238"
-                  offsetFromSymbolStart = "50">
+                  startingLineNumber = "256"
+                  endingLineNumber = "256"
+                  offsetFromSymbolStart = "57">
                </Location>
                <Location
                   shouldBeEnabled = "No"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "testWhile(Set&lt;FD&gt; const&amp;, std::__1::vector&lt;Set&lt;Attribute&gt;, std::__1::allocator&lt;Set&lt;Attribute&gt; &gt; &gt;&amp;, Set&lt;Attribute&gt;*&amp;, FD const*&amp;)"
+                  symbolName = "testWhile(Set&lt;FD&gt; const&amp;, std::__1::vector&lt;Set&lt;Attribute&gt;, std::__1::allocator&lt;Set&lt;Attribute&gt; &gt; &gt;&amp;, Set&lt;Attribute&gt;*&amp;, FD const*&amp;, Set&lt;Attribute&gt;&amp;)"
                   moduleName = "Closure"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/lois/Documents/M1ENS/BDDM/Closure/Closure/functions.cpp"
-                  timestampString = "512922028.732179"
+                  timestampString = "512933447.868155"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "238"
-                  endingLineNumber = "238"
-                  offsetFromSymbolStart = "376">
+                  startingLineNumber = "256"
+                  endingLineNumber = "256"
+                  offsetFromSymbolStart = "383">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -426,12 +426,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Closure/functions.cpp"
-            timestampString = "512922094.480967"
+            timestampString = "512932742.763508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "261"
-            endingLineNumber = "261"
-            landmarkName = "decompose(const FDSet&amp; sigma, vector&lt;AttSet&gt;&amp; R)"
+            startingLineNumber = "280"
+            endingLineNumber = "280"
+            landmarkName = "decompose(const FDSet&amp; sigma, Set&lt;AttSet&gt;&amp; R)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -442,12 +442,12 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Closure/functions.cpp"
-            timestampString = "512922110.178527"
+            timestampString = "512932742.763508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "259"
-            endingLineNumber = "259"
-            landmarkName = "decompose(const FDSet&amp; sigma, vector&lt;AttSet&gt;&amp; R)"
+            startingLineNumber = "278"
+            endingLineNumber = "278"
+            landmarkName = "decompose(const FDSet&amp; sigma, Set&lt;AttSet&gt;&amp; R)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>
@@ -458,12 +458,28 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Closure/functions.cpp"
-            timestampString = "512922113.080724"
+            timestampString = "512932742.763508"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "260"
-            endingLineNumber = "260"
-            landmarkName = "decompose(const FDSet&amp; sigma, vector&lt;AttSet&gt;&amp; R)"
+            startingLineNumber = "279"
+            endingLineNumber = "279"
+            landmarkName = "decompose(const FDSet&amp; sigma, Set&lt;AttSet&gt;&amp; R)"
+            landmarkType = "9">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Closure/functions.cpp"
+            timestampString = "512933246.930115"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "BCNF(const FDSet&amp; sigma, const AttSet&amp; schema, FD const*&amp; func, AttSet&amp; xp)"
             landmarkType = "9">
          </BreakpointContent>
       </BreakpointProxy>

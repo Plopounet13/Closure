@@ -77,6 +77,27 @@ public:
 		
 		return out;
 	}
+	
+	//Equality operator (two sets are equal if they have the same content)
+	friend bool operator==(const Set<T>& a, const Set<T>& b){
+		return (a.tab != b.tab);
+	}
+	
+	friend bool operator<(const Set<T>& a, const Set<T>& b){
+		return (a.tab < b.tab);
+	}
+	
+	friend bool operator>(const Set<T>& a, const Set<T>& b){
+		return (a.tab > b.tab);
+	}
+
+	friend bool operator<=(const Set<T>& a, const Set<T>& b){
+		return (a.tab <= b.tab);
+	}
+	
+	friend bool operator>=(const Set<T>& a, const Set<T>& b){
+		return (a.tab >= b.tab);
+	}
 
 	
 };
@@ -153,6 +174,7 @@ const Set<T>& Set<T>::operator-=(const T& elem){
 	if (first!=tab.end() && !(elem<*first)){
 		tab.erase(first);
 	}
+	return *this;
 }
 
 
