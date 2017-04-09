@@ -10,12 +10,12 @@
 #define Attribute_hpp
 
 #include <iostream>
-#include <map>
+#include <unordered_map>
 #include <vector>
 
 //Attribute
 class Attribute{
-	static std::map<std::string, int> mappage;
+	static std::unordered_map<std::string, int> mappage;
 	static std::vector<std::string> names;
 	void fromString(std::string& s);
 	

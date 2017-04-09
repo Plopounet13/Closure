@@ -10,7 +10,7 @@
 
 using namespace std;
 
-std::map<std::string, int> Attribute::mappage;
+std::unordered_map<std::string, int> Attribute::mappage;
 std::vector<std::string> Attribute::names;
 int Attribute::counter = 0;
 
